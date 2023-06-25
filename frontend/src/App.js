@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import AssetSelector from './components/AssetSelector';
+import React, { useState, useEffect } from "react";
+import AssetSelector from "./components/AssetSelector";
 const ethers = require("ethers");
 
 function App() {
@@ -9,7 +9,9 @@ function App() {
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
         setAccount(accounts[0]);
         setProvider(new ethers.providers.Web3Provider(window.ethereum));
       } catch (error) {
@@ -20,6 +22,22 @@ function App() {
       alert("Please install Metamask");
     }
   };
+
+  useEffect(() => {
+    const button = document.querySelector(
+      ".button.button-primary.button-block"
+    );
+
+    if (button) {
+      button.addEventListener("click", connectWallet);
+    }
+
+    return () => {
+      if (button) {
+        button.removeEventListener("click", connectWallet);
+      }
+    };
+  }, []);
 
   return (
     <div className="App">

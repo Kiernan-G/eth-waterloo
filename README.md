@@ -12,6 +12,14 @@ In this design, an NFT is used to represent a vault of assets that will eventual
 
 The social recovery is used to confirm death. Guardians must be selected off-chain in a way that minimizes the risk of colluding against the Testator. We have incorporated a social recovery module (an extension to Safe{Core}) which deals with logic for inactivity, delayed recovery, account overtake, etc.
 
+### Deployment Address
+
+``` Polygon mainnet: 0x96D90D184B1E2f50d223E311Bd918f4490ADEA61 ```
+
+### Demo Link
+
+``` https://www.figma.com/proto/mbfxnIacdt7NyrqGe6IKkZ/waterloo?node-id=29-1473&starting-point-node-id=29%3A1473&mode=design ```
+
 ### How it's made
 
 Safe{Core} Account Abstraction SDK: We used Safe to deploy Smart Contract Wallets, which allow for extensible smart contract logic and seamless gas-free transactions.
